@@ -229,7 +229,31 @@ def fbdisconnect():
 @app.route("/")
 def home_page():
 
-    return render_template("home.html")
+        return render_template("home.html")
+
+@app.route("/new_city", methods=["GET", "POST"])
+def new_city():
+
+    if 'username' not in login_session:
+        return redirect('/login')
+        # Add g to keep track of last page
+
+    if request.method == "GET":
+
+        return render_template("new_city.html")
+
+    if request.method == "POST":
+
+        newCity = City(name = request.form["name"], user_id = login_session["user_id"])
+        db_session.add(newCity)
+        db_session.commit()
+        flash("New city %s created" % newCity.name)
+        return redirect(url_for('home_page'))
+
+@app.route("/<city>")
+
+
+@app.route("/<city>/<stop>")
 
 def getUserID(email):
     try:
