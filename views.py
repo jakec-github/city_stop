@@ -251,6 +251,28 @@ def new_city():
         return redirect(url_for('home_page'))
 
 @app.route("/<city>")
+def city(city):
+
+    return render_template("city.html")
+
+@app.route("/<city>/new_stop", methods=["GET", "POST"])
+def new_stop(city):
+    if 'username' not in login_session:
+        return redirect('/login')
+
+    if request.method == "GET":
+
+        return render_template("new_stop.html")
+
+    if request.method == "POST":
+
+        city = db_session.query(City).filter_by(name = city).one()
+
+        newStop = Stop(name = request.form["name"], description = request.form["description"], recommendations = 0, user_id = login_session["user_id"], city_id = city.id)
+        db_session.add(newStop)
+        db_session.commit()
+        flash("New stop %s created" % newStop.name)
+        return redirect(url_for('home_page'))
 
 
 @app.route("/<city>/<stop>")
