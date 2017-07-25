@@ -1,0 +1,27 @@
+{% extends "main.html" %}
+{% block content %}
+<section class="main">
+  <article class="one-stop">
+    <h3>{{ stop.name }}</h3>
+    <p class="description">
+      {{stop.description}}
+    </p>
+    <form class="recommendations" method="POST">
+      <input type="hidden" name="csrf-token" value="{{csrf_token}}" />
+      {% if stop.id not in r_stops %}
+      <input type="hidden" name="+1" />
+      <button class="plus" type="submit">{{stop.recommendations}}</button>
+      {% else %}
+      <input type="hidden" name="-1" />
+      <button class="minus" type="submit">{{stop.recommendations}}</button>
+      {% endif %}
+    </form>
+    {% if session["user_id"] == stop.user_id %}
+    <div class="options">
+      <a class="stop-edit" href="{{url_for('edit_stop', city = city.name, stop = stop.name)}}">Edit</a>
+      <a class="stop-delete" href="{{url_for('delete_stop', city = city.name, stop = stop.name)}}">Delete</a>
+    </div>
+    {% endif %}
+  </article>
+</section>
+{% endblock %}

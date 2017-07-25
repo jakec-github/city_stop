@@ -1,7 +1,11 @@
-<html>
-<body>
-  <p>
-    New city page
-  </p>
-</body>
-</html>
+{% extends "main.html" %}
+{% block content %}
+<section class="new-city-form">
+  <form method = "post">
+        <input type="hidden" name="csrf-token" value="{{csrf_token}}" />
+				<label for="name">Which city would you like to add?</label>
+				<input type ="text" class="form-control" maxlength="30" name="name">
+				<button type="submit" class="btn btn-default" id="submit">Add!</button>
+			</form>
+</section>
+{% endblock %}

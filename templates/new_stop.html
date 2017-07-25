@@ -1,7 +1,13 @@
-<html>
-<body>
-  <p>
-    New stop?
-  </p>
-</body>
-</html>
+{% extends "main.html" %}
+{% block content %}
+<section class="new-stop-form">
+  <form method = "post">
+        <input type="hidden" name="csrf-token" value={{csrf_token}} />
+				<label id="name-label" for="name">Recommend a stop!</label>
+				<input id="name-input" type="text" maxlength="30" name="name" />
+        <label id="description-label" for="description">Add a description...</label>
+        <textarea id="description-input" type="text" maxlength="1000" name="description" rows="5"></textarea>
+				<button type="submit" id="submit">Add!</button>
+			</form>
+</section>
+{% endblock %}

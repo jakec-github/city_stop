@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+  <title>City Stop</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="shortcut icon" href="{{ url_for('static', filename='img/city_stop_mini.png') }}" />
+  <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}" />
+  <link href="https://fonts.googleapis.com/css?family=Candal" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <a id="logo-link" href="{{url_for('home_page')}}">
+      <img id="logo" src="{{url_for('static', filename='img/city_stop_full.png')}}" />
+    </a>
+    <div class="user-access">
+      {% if session["username"] %}
+      <span class="user">
+        Welcome {{session["username"]}}
+      </span>
+      <img id="user-photo" src="{{session['picture']}}" />
+      <form action="/logout" method="post">
+        <span><button class="access" type="submit">Log Out</button></span>
+      </form>
+      {% else %}
+      <a class="access" href="{{url_for('login')}}">Log In / Sign up</a>
+      {% endif %}
+    </div>
+
+  </header>
+  <div class="stripe">
+
+  </div>
+  <div class="flash">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+
+
+    {% for message in messages %}
+    <p>
+      {{message}}
+    </p>
+    {% endfor %}
+
+    {% endif %}
+    {% endwith %}
+  </div>
+  {% block content %}
+  {% endblock %}
+</body>
+</html>

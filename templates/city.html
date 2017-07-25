@@ -1,7 +1,44 @@
-<html>
-<body>
+{% extends "main.html" %}
+{% block content %}
+  <section class="city-header">
+    <h1>{{city.name}}</h1>
+  </section>
   <p>
-    You have reached the city page. Your http request is important to us
+    {{test}}
   </p>
-</body>
-</html>
+  <section class="main">
+    {% for stop in stops %}
+    <div class="stop-wrapper">
+        <a class="stop-name" href="{{url_for('stop', city = city.name, stop = stop.name)}}">
+          <article class="stop">
+            <h3>{{ stop.name }}</h3>
+            <form class="recommendations" method="POST">
+              <input type="hidden" name="csrf-token" value={{csrf_token}} />
+              {% if stop.id not in r_stops %}
+              <input type="hidden" name="+1" />
+              <input type="hidden" name="stop" value="{{stop.id}}" />
+              <button class="plus" type="submit">{{stop.recommendations}}</button>
+              {% else %}
+              <input type="hidden" name="-1" />
+              <input type="hidden" name="stop" value="{{stop.id}}" />
+              <button class="minus" type="submit">{{stop.recommendations}}</button>
+              {% endif %}
+            </form>
+            {% if session["user_id"] == stop.user_id %}
+            <div class="options">
+              <a class="stop-edit" href="{{url_for('edit_stop', city = city.name, stop = stop.name)}}">Edit</a>
+              <a class="stop-delete" href="{{url_for('delete_stop', city = city.name, stop = stop.name)}}">Delete</a>
+            </div>
+            {% endif %}
+          </article>
+        </a>
+    </div>
+    {% endfor %}
+  </section>
+  {% if session["username"] %}
+  <section class="new-section">
+    <a class="new new-stop" href="{{url_for('new_stop', city = city.name)}}">Add a stop!</a>
+  </section>
+  {% endif %}
+
+{% endblock %}

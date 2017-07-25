@@ -1,20 +1,23 @@
-<html>
-<body>
-  <div class = 'flash'>
-		      {% with messages = get_flashed_messages() %}
-      {% if messages %}
-
-        <ul>
-        {% for message in messages %}
-            <li> <strong> {{ message }} </strong> </li>
-        {% endfor %}
-        </ul>
+{% extends "main.html" %}
+{% block content %}
+  <section class="main">
+    {% for city in cities %}
+    <div class="city-wrapper">
+      <a class="city-name" href="{{url_for('city', city = city.name)}}">
+        <article class="city">
+        <h3>{{ city.name }}</h3>
+        {% if session["user_id"] == city.user_id %}
+        <a class="delete" href="{{url_for('delete_city', city = city.name)}}">Delete</a>
         {% endif %}
-    {% endwith %}
+        </article>
+      </a>
+    </div>
 
-  </div>
-  <p>
-    Welcome to zombocom
-  </p>
-</body>
-</html>
+    {% endfor %}
+  </section>
+  {% if session["username"] %}
+  <section class="new-section">
+    <a class="new new-city" href="{{url_for('new_city')}}">Add a city!</a>
+  </section>
+  {% endif %}
+{% endblock %}

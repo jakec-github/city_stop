@@ -1,0 +1,344 @@
+body {
+  background: linear-gradient(135deg, #569af8 0%, #5e9ff8 5%, #bbd7fc 60%, white 100%) no-repeat fixed;
+  margin: 0px; }
+
+header {
+  background-color: white;
+  min-height: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; }
+  header #logo-link {
+    margin-left: 40px;
+    align-self: center; }
+  header #logo {
+    width: 360px; }
+  header .user-access {
+    align-self: center;
+    margin-right: 60px; }
+    header .user-access .user {
+      font-size: 20px;
+      color: #F96365;
+      font-family: sans-serif;
+      margin-right: 20px; }
+    header .user-access #user-photo {
+      max-height: 50px;
+      max-width: 50px;
+      border-radius: 100%;
+      padding-right: 10px;
+      margin-bottom: -25px; }
+  header .access {
+    font-size: 25px;
+    color: #F96365;
+    font-family: sans-serif;
+    text-decoration: none;
+    background-color: white;
+    border: none;
+    cursor: pointer; }
+
+.stripe {
+  min-height: 30px;
+  background-color: #F96365;
+  box-shadow: 1px 5px 5px #666666; }
+
+.flash {
+  margin: auto;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  width: 40%;
+  background-color: white;
+  border-radius: 5px;
+  text-align: center; }
+  .flash p {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: #F96365;
+    font-family: sans-serif; }
+
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; }
+
+.city-wrapper {
+  text-align: center;
+  line-height: 130px;
+  margin: 0 15px -50px 15px;
+  position: relative; }
+
+.city-name {
+  font-size: 45px;
+  color: #F96365;
+  font-family: 'Candal', sans-serif;
+  text-transform: uppercase;
+  text-decoration: none; }
+
+.city {
+  background-color: white;
+  width: 500px;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 3px 2px 5px 0 #aaaaaa;
+  min-height: 160px; }
+
+.delete {
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  margin: auto;
+  font-size: 15px;
+  color: #F96365;
+  font-family: sans-serif;
+  text-decoration: none; }
+
+.new-section {
+  text-align: center;
+  margin: 45px;
+  margin-bottom: 60px; }
+  .new-section .new {
+    margin: auto;
+    color: white;
+    text-transform: uppercase;
+    font-family: 'Candal', sans-serif;
+    font-size: 35px;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 5px 20px 5px 20px;
+    box-shadow: 10px 17px 13px -2px rgba(0, 0, 0, 0.51);
+    transition: box-shadow 0.1s; }
+    .new-section .new:hover {
+      box-shadow: 4px 6px 13px -4px rgba(0, 0, 0, 0.51); }
+  .new-section .new-city {
+    background-color: #F96365; }
+  .new-section .new-stop {
+    background-color: #569AF8; }
+
+.city-header {
+  background-color: white;
+  text-align: right;
+  margin-top: -15px;
+  min-height: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end; }
+  .city-header h1 {
+    margin: 15px 100px 5px 0;
+    color: #569AF8;
+    font-family: sans-serif;
+    font-size: 50px;
+    align-self: flex-end; }
+
+.stop-wrapper {
+  text-align: center;
+  margin: 0 15px -50px 15px;
+  position: relative; }
+
+.stop-name {
+  font-size: 45px;
+  color: #569AF8;
+  font-family: 'Candal', sans-serif;
+  text-transform: uppercase;
+  text-decoration: none; }
+
+.stop {
+  background-color: white;
+  width: 500px;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 3px 2px 5px 0 #aaaaaa;
+  min-height: 160px;
+  position: relative; }
+
+.recommendations {
+  position: absolute;
+  bottom: 10px;
+  left: 10px; }
+  .recommendations button {
+    height: 30px;
+    width: 30px;
+    border-radius: 100%;
+    color: white;
+    font-family: sans-serif;
+    font-size: 20px;
+    cursor: pointer; }
+  .recommendations .plus {
+    background-color: #569AF8; }
+  .recommendations .minus {
+    background-color: #F96365; }
+
+.options {
+  position: absolute;
+  bottom: 10px;
+  right: 10px; }
+  .options a {
+    font-size: 15px;
+    color: #F96365;
+    font-family: sans-serif;
+    text-decoration: none;
+    padding-right: 5px; }
+
+.one-stop {
+  background-color: white;
+  width: 70%;
+  border-radius: 5px;
+  box-shadow: 3px 2px 5px 0 #aaaaaa;
+  min-height: 160px;
+  padding-left: 10px;
+  position: relative; }
+  .one-stop h3 {
+    font-size: 35px;
+    font-family: sans-serif;
+    color: #569AF8; }
+  .one-stop .description {
+    padding: 0 20px 45px 20px;
+    font-family: sans-serif;
+    color: #569AF8;
+    line-height: 1.4em; }
+
+.new-city-form {
+  background-color: #F96365;
+  margin: auto;
+  margin-top: 50px;
+  width: 50%;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 3px 2px 5px 0px #aaaaaa; }
+  .new-city-form label {
+    display: block;
+    padding-top: 35px;
+    font-family: sans-serif;
+    font-size: 25px;
+    color: white;
+    width: 50%;
+    margin: auto; }
+  .new-city-form input {
+    display: block;
+    margin: auto;
+    margin-top: 35px;
+    font-size: 30px;
+    border-radius: 3px;
+    border: none;
+    box-shadow: inset 3px 3px 5px -2px rgba(0, 0, 0, 0.58);
+    color: #569AF8;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Candal', sans-serif;
+    padding-top: 5px;
+    padding-bottom: 5px; }
+  .new-city-form button {
+    margin-top: 35px;
+    margin-bottom: 35px;
+    font-size: 30px;
+    border-radius: 3px;
+    border: none;
+    background-color: #569AF8;
+    color: white;
+    cursor: pointer; }
+
+.delete-form {
+  background-color: #F96365;
+  margin: auto;
+  margin-top: 50px;
+  width: 50%;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 3px 2px 5px 0px #aaaaaa; }
+  .delete-form label {
+    display: block;
+    padding-top: 35px;
+    font-family: sans-serif;
+    font-size: 25px;
+    color: white;
+    width: 50%;
+    margin: auto; }
+  .delete-form input {
+    display: block;
+    margin: auto;
+    margin-top: 35px;
+    font-size: 30px;
+    border-radius: 3px;
+    border: none;
+    box-shadow: inset 3px 3px 5px -2px rgba(0, 0, 0, 0.58);
+    color: #569AF8;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Candal', sans-serif;
+    padding-top: 5px;
+    padding-bottom: 5px; }
+  .delete-form button, .delete-form a {
+    margin-top: 35px;
+    margin-bottom: 35px;
+    font-size: 30px;
+    border-radius: 3px;
+    border: none;
+    background-color: #569AF8;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: sans-serif;
+    padding: 5px 10px 5px 10px;
+    margin-left: 5px;
+    margin-right: 5px; }
+
+.new-stop-form {
+  background-color: #F96365;
+  margin: auto;
+  margin-top: 50px;
+  width: 50%;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 3px 2px 5px 0px #aaaaaa; }
+  .new-stop-form label {
+    display: block;
+    padding-top: 35px;
+    font-family: sans-serif;
+    font-size: 25px;
+    color: white;
+    width: 50%;
+    margin: auto; }
+  .new-stop-form input, .new-stop-form textarea {
+    display: block;
+    margin: auto;
+    margin-top: 35px;
+    border-radius: 3px;
+    border: none;
+    box-shadow: inset 3px 3px 5px -2px rgba(0, 0, 0, 0.58);
+    color: #569AF8;
+    padding-top: 5px;
+    padding-bottom: 5px; }
+  .new-stop-form #name-input {
+    font-size: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Candal', sans-serif; }
+  .new-stop-form #description-input {
+    font-size: 18px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: sans-serif;
+    width: 80%; }
+  .new-stop-form button {
+    margin-top: 35px;
+    margin-bottom: 35px;
+    font-size: 30px;
+    border-radius: 3px;
+    border: none;
+    background-color: #569AF8;
+    color: white;
+    cursor: pointer; }
+
+.login {
+  margin: auto;
+  margin-top: 150px;
+  background-color: #F96365;
+  width: 40%;
+  border-radius: 5px;
+  min-height: 250px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center; }
+  .login .login-button {
+    padding: 0 10px 0 10px; }
+
+/*# sourceMappingURL=main.css.map */
