@@ -448,7 +448,6 @@ def delete_city(city):
                     db_session.delete(recommendation)
 
                 db_session.delete(stop)
-                
             db_session.delete(city)
             db_session.commit()
             flash("Successfully deleted %s" % city.name)
@@ -616,7 +615,7 @@ def api_home():
     return jsonify(Cities=[i.serialize for i in cities]), 200
 
 
-@app.route("/api/v1/city/<city>")
+@app.route("/api/v1/city/<string:city>")
 def api_city(city):
     """ Returns json containing version of the city page """
 
@@ -627,7 +626,7 @@ def api_city(city):
     return jsonify(Stops=[i.serialize for i in stops]), 200
 
 
-@app.route("/api/v1/<city>/<stop>")
+@app.route("/api/v1/<string:city>/<string:stop>")
 def api_stop(city, stop):
     """ Returns json containing version of the stop page """
 
